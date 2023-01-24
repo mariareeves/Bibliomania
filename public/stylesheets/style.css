@@ -1,0 +1,17 @@
+/* #books {
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}
+
+#book-cover-details {
+    height: 300px;
+    height: 450px;
+}

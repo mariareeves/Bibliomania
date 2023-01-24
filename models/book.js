@@ -25,6 +25,10 @@ const reviewSchema = new Schema({
 
 
 const bookSchema = new Schema({
+    userRecommending: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
     title: {
         type: String,
         required: true
@@ -35,7 +39,10 @@ const bookSchema = new Schema({
     },
     publishedDate: {
         type: Date,
-        required: true
+        required: true,
+        default: function () {
+            return new Date().toLocaleDateString('en-us', { day: "numeric", year: "numeric", month: "short" })
+        }
     },
     coverImage: {
         type: String,
@@ -56,6 +63,7 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
+    usersReading: [Schema.Types.ObjectId],
     reviews: [reviewSchema],
 
 })
