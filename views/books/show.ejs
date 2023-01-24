@@ -31,11 +31,6 @@
 
             <br><br>
             <h2>Ratings & Reviews</h2>
-            <form id="add-review-form" method="get" action="/books/<%= book._id %>/reviews/new">
-                <button class="btn btn-primary">Write a Review</button>
-            </form>
-
-            <br><br>
             <% if (book.reviews.length) { %>
                 <table>
                     <thead>
@@ -50,8 +45,8 @@
                             <% book.reviews.forEach(function(r) { %>
                                 <% total +=r.rating %>
                                     <tr>
-                                        <td class="review-user"><img alt="avatar"
-                                                src="<%= r.userAvatar %> referrerpolicy=" no-referrer">
+                                        <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>"
+                                                referrerpolicy="no-referrer">
                                             <%= r.userName %>
                                         </td>
                                         <td>
@@ -62,6 +57,13 @@
                                         </td>
                                         <td>
                                             <%= r.rating %>
+                                        </td>
+                                        <td>
+                                            <% if (user?._id.equals(r.user)) { %>
+                                                <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                                                    <button type="submit">X</button>
+                                                </form>
+                                                <% } %>
                                         </td>
                                     </tr>
                                     <% }); %>
@@ -76,6 +78,12 @@
                 <% } else { %>
                     <h5>No Reviews Yet</h5>
                     <% } %>
+                        <form id="add-review-form" method="get" action="/books/<%= book._id %>/reviews/new">
+                            <button class="btn btn-primary">Write a Review</button>
+                        </form>
+
+
+
         </div>
 
 

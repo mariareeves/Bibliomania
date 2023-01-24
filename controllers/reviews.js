@@ -3,20 +3,9 @@ const Book = require('../models/book');
 module.exports = {
     new: newReview,
     create,
+    delete: deleteReview,
 }
 
-
-// function create(req, res) {
-
-//     console.log('Testing controller')
-//     console.log(req.body)
-//     console.log(req.body.content)
-//     bookId = req.params.id
-//     req.body.book = bookId
-//     Book.create(req.body, function (err, review) {
-//         res.redirect(`/books/${bookId}`)
-//     })
-// }
 
 function create(req, res) {
     Book.findById(req.params.id, function (err, book) {
@@ -42,3 +31,15 @@ function newReview(req, res) {
     res.render('reviews/new', { title: 'Add Review', bookId: req.params.id });
 }
 
+function deleteReview(req, res) {
+    console.log('testing')
+    Book.findOne({ 'reviews._id': req.params.id, 'reviews.user': req.user._id },
+        function (err, book) {
+            console.log(err)
+            if (!book || err) return res.redirect(`/books/${book._id}`)
+            book.reviews.remove(req.params.id)
+            book.save(function (err) {
+                res.redirect(`/books/${book._id}`)
+            })
+        })
+}
