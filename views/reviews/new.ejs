@@ -3,19 +3,14 @@
     <div class="row">
         <h2 class="text-center">Reviews</h2>
         <div class="col-6 offset-3">
-            <form action="/books/<%= book._id %>/reviews" method="POST">
+            <form action="/books/<%= bookId %>/reviews" method="POST">
                 <div class="mb-3">
                     <label>What did you think?</label>
                     <textarea class="form-control" name="content"></textarea>
                 </div>
                 <div class="mb-3">
-                    <label>Book Image URL:</label>
-                    <input class="form-control" type="text" id="image" name="coverImage" autocomplete="off">
-
-                </div>
-                <div class="mb-3">
                     <label>Ratings:
-                        <select class="form-select" name="Ratings">
+                        <select class="form-select" name="rating">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
