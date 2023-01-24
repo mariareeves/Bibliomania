@@ -47,7 +47,7 @@ const bookSchema = new Schema({
             'Science fiction', 'Non-fiction',
             'Poetry', 'Memoir', 'Self Help', 'History', 'Autobiography', 'Drama', 'CookBook',
             'Personal Development', 'Humor', 'Children Literature',
-            'Romance', 'Mythology', 'Mystery', 'Politics'
+            'Romance', 'Mythology', 'Mystery', 'Politics', 'Psychology'
 
         ],
         required: true

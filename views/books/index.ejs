@@ -1,0 +1,17 @@
+<% layout('./layouts/boilerplate') %>
+
+    <% books.forEach(function(b){ %>
+        <div class="card text-center" style="width: 18rem;">
+            <div class="row">
+                <img src="<%= b.coverImage %>" class="card-img-top" alt="book cover">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= b.title %>
+                    </h5>
+                    <p class="card-text">Click bellow to find out more.</p>
+                    <a href="#" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        </div>
+
+        <% }) %>
