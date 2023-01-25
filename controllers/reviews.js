@@ -4,6 +4,8 @@ module.exports = {
     new: newReview,
     create,
     delete: deleteReview,
+    edit,
+    update,
 }
 
 
@@ -42,4 +44,19 @@ function deleteReview(req, res) {
                 res.redirect(`/books/${book._id}`)
             })
         })
+}
+
+function edit(req, res) {
+    res.render('reviews/edit', { title: 'Edit Review', bookId: req.params.id })
+}
+
+function update(req, res) {
+    Book.findOne({ 'reviews._id': req.params.id }, function (err, book) {
+        const reviewSubdoc = book.reviews.id(req.params.id)
+        if (!reviewSubdoc.req.user) return res.redirect(`/books/${book._id}`)
+        reviewSubdoc.content = req.body.content
+        book.save(function (err) {
+            res.redirect(`/books/${books._id}`)
+        })
+    })
 }
