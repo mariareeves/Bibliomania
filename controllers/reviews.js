@@ -59,6 +59,7 @@ function update(req, res) {
 
         if (!reviewSubdoc.user) return res.redirect(`/books/${book._id}`)
         reviewSubdoc.content = req.body.content
+        reviewSubdoc.rating = req.body.rating
         book.save(function (err) {
             res.redirect(`/books/${book._id}`)
         })

@@ -5,6 +5,7 @@ var router = express.Router();
 //Require the controller that exports books CRUD functions
 const booksCtrl = require('../controllers/books');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
+const book = require('../models/book');
 
 // All actual paths begin with '/books'
 // Get /books
@@ -15,5 +16,6 @@ router.get('/new', ensureLoggedIn, booksCtrl.new);
 router.get('/:id', booksCtrl.show);
 // POST /books
 router.post('/', ensureLoggedIn, booksCtrl.create);
+
 
 module.exports = router;

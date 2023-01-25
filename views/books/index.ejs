@@ -1,19 +1,25 @@
 <% layout('./layouts/boilerplate') %>
-
-    <% books.forEach(function(b){ %>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card text-center border-dark mb-3" style="width: 18rem;">
-                    <img src="<%= b.coverImage %>" class="card-img-top" alt="book cover">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <%= b.title %>
-                        </h5>
-                        <p class="card-text">Click bellow to find out more.</p>
-                        <a href="/books/<%= b._id%> " class="btn btn-primary">Details</a>
+    <div>
+        <h2>Search bar</h2>
+    </div>
+    <div class="row">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <% books.forEach(function(b){ %>
+                <div class="col-sm-3">
+                    <div class="card h-100 border-dark" style="width: 18rem;">
+                        <img src="<%=b.coverImage %>" class="card-img-top" id="book-display" alt="bookCover">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">
+                                <%= b.title %>
+                            </h5>
+                            <p class="card-text">Click bellow to find out more.</p>
+                        </div>
+                        <div class="card-footer  border-dark text-center">
+                            <a href="/books/<%= b._id%> " class="btn btn-primary">Details</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <% }) %>
+                <% }) %>
+        </div>
+    </div>

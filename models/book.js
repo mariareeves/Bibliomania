@@ -63,7 +63,6 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    usersReading: [Schema.Types.ObjectId],
     reviews: [reviewSchema],
 
 })
