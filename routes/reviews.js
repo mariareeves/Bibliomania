@@ -12,9 +12,9 @@ router.post('/books/:id/reviews', ensureLoggedIn, reviewsCtrl.create)
 // Delete /reviews
 router.delete('/reviews/:id', ensureLoggedIn, reviewsCtrl.delete)
 // Edit 
-router.get('/books/:id/reviews/edit', ensureLoggedIn, reviewsCtrl.edit)
+router.get('/books/:bookId/:reviewId/reviews/edit', ensureLoggedIn, reviewsCtrl.edit)
 // Update /reviews/:id
-router.put('/books/:id/reviews', ensureLoggedIn, reviewsCtrl.update)
+router.put('/books/:bookId/:reviewId/reviews', ensureLoggedIn, reviewsCtrl.update)
 
 
 

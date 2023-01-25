@@ -63,7 +63,7 @@
                                                 <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
                                                     <button type="submit">X</button>
                                                 </form>
-                                                <a href="/books/<%= book._id %>/reviews/edit">Edit</a>
+                                                <a href="/books/<%= book._id %>/<%= r._id %>/reviews/edit">Edit</a>
 
 
                                                 <% } %>
@@ -81,7 +81,7 @@
                 <% } else { %>
                     <h5>No Reviews Yet</h5>
                     <% } %>
-                        <form id="add-review-form" method="get" action="/books/<%= book._id %>/reviews/edit">
+                        <form id="add-review-form" method="get" action="/books/<%= book._id %>/reviews/new">
                             <button class="btn btn-primary">Write a Review</button>
                         </form>
 
