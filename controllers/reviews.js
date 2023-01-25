@@ -53,10 +53,10 @@ function edit(req, res) {
 function update(req, res) {
     Book.findOne({ 'reviews._id': req.params.id }, function (err, book) {
         const reviewSubdoc = book.reviews.id(req.params.id)
-        if (!reviewSubdoc.req.user) return res.redirect(`/books/${book._id}`)
+        if (!reviewSubdoc.user) return res.redirect(`/books/${book._id}`)
         reviewSubdoc.content = req.body.content
         book.save(function (err) {
-            res.redirect(`/books/${books._id}`)
+            res.redirect(`/books/${book._id}`)
         })
     })
 }
