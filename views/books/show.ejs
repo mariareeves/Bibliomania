@@ -2,33 +2,50 @@
 
     <div class="container-showpage">
         <div class="left-side">
-            <span id="book-details">
-                <img src="<%= book.coverImage %>" id="book-cover-details"></img>
-            </span>
+            <div class="card" style="width: 18rem;">
+                <img src="<%= book.coverImage %>" id="book-details" class="card-img-top" alt="Book">
+                <div class="card-body text-center">
+                    <a href="/books" class="btn btn-primary">Add to Favorites</a>
+                </div>
+            </div>
         </div>
         <div class="right-side">
 
-            <div>Title:</div>
             <div>
-                <%= book.title%>
+                <h3>Title:</h3>
+                <p>
+                    <%= book.title%>
+                </p>
             </div>
-            <div>Author: </div>
             <div>
-                <%= book.author %>
-            </div>
-            <div>Published Date: </div>
-            <div>
-                <%= book.publishedDate%>
-            </div>
-            <div>Genre: </div>
-            <div>
-                <%= book.genre%>
-            </div>
-            <div>Overview: </div>
-            <div>
-                <%= book.overview%>
+                <h3>Author:</h3>
+                <p>
+                    <%= book.author %>
+                </p>
             </div>
 
+            <div>
+                <h3>Published Date:</h3>
+                <p>
+                    <%= book.publishedDate%>
+                </p>
+            </div>
+
+            <div>
+                <h3>Genre: </h3>
+                <p>
+                    <%= book.genre%>
+                </p>
+            </div>
+
+            <div>
+                <h3>Overview: </h3>
+                <p>
+                    <%= book.overview%>
+                </p>
+            </div>
+
+            <br><b></b>
         </div>
         <br>
         <div class="table-responsive">
@@ -80,8 +97,11 @@
 
                                         <tr class="align-bottom">
                                             <td colspan="4"></td>
+
+
                                             <td><strong>
-                                                    <%= (total / book.reviews.length).toFixed(1) %>
+                                                    <% const totalRating=(total / book.reviews.length).toFixed(1) %>
+                                                        <%= totalRating %>
                                                 </strong></td>
                                         </tr>
 

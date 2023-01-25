@@ -42,6 +42,11 @@
     align-items: center;
 } */
 
+.headings {
+    font-size: 20px;
+    color: red;
+}
+
 .review-user img {
     border-radius: 50%;
     height: 40px;
