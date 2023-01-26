@@ -42,7 +42,6 @@ function create(req, res) {
 
 function searchBooks(req, res) {
     console.log(req.query)
-    // // let bookQuery = req.query.bookTitle ? { title: new RegExp(req.query.bookTitle, 'i') } : {};
     // console.log('Book Query', bookQuery)
     Book.find({ title: { $regex: new RegExp(req.query.bookTitle, 'i') } }, function (err, books) {
         res.render('books/index', {

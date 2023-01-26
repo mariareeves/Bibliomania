@@ -1,26 +1,26 @@
 <% layout('./layouts/boilerplate') %>
 
     <div class="row">
-        <h2 class="text-center">Add a New Book</h2>
+        <h2 id="bookPage" class="text-center">Add a New Book</h2>
         <div class="col-6 offset-3">
             <form action="/books" method="POST">
                 <div class="mb-3">
-                    <label>Title:</label>
+                    <label id="reviewPage">Title:</label>
                     <input class="form-control" type="text" id="title" name="title">
                 </div>
                 <div class="mb-3">
-                    <label>Book Image URL:</label>
+                    <label id="reviewPage">Book Image URL:</label>
                     <input class="form-control" type="text" id="image" name="coverImage" autocomplete="off">
 
                 </div>
                 <div class="mb-3">
-                    <label>Author:
+                    <label id="reviewPage">Author:
                         <input class="form-control" id="author" type="text" name="author" autocomplete="off">
                     </label>
-                    <label class="form-label">Published Date:
+                    <label class="form-label" id="reviewPage">Published Date:
                         <input class="form-control" id="publishedDate" type="date" name="publishedDate">
                     </label>
-                    <label>Genre:
+                    <label id="reviewPage">Genre:
                         <select class="form-select" id="genre" name="genre">
                             <option value="Fiction">Fiction</option>
                             <option value="Novel">Novel</option>
@@ -40,17 +40,18 @@
                             <option value="Mythology">Mythology</option>
                             <option value="Mystery">Mystery</option>
                             <option value="Politics">Politics</option>
-                            <option value="Psychology">Psychology</option>
+                            <option value="Business">Business</option>
+                            <option value="Finance">Finance</option>
                         </select>
                     </label>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Overview:
+                    <label class="form-label" id="reviewPage">Overview:
                         <textarea class="form-control" id="overview" type="text" name="overview"></textarea>
                     </label>
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-primary" type="submit">Save</button>
+                    <button class="btn btn-warning" type="submit">Save</button>
                 </div>
             </form>
         </div>

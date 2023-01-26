@@ -2,6 +2,7 @@
 
     <div>
 
+        <h2 id="bookPage" class="text-center">Book Catalog</h2>
         <form action='/books/searchBooks' method="GET" class="d-flex" role="search">
             <input class="form-control me-2" type="search" name="bookTitle" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-warning" type="submit">Search</button>
@@ -14,10 +15,10 @@
                     <div class="card h-100 border-dark" style="width: 18rem;">
                         <img src="<%=b.coverImage %>" class="card-img-top" id="book-display" alt="bookCover">
                         <div class="card-body text-center">
-                            <h5 class="card-title">
+                            <h5 id="titleName" class="card-title">
                                 <%= b.title %>
                             </h5>
-                            <p class="card-text">Click bellow to find out more.</p>
+                            <p id="detailsInfo" class="card-text">Click bellow to find out more.</p>
                         </div>
                         <div class="card-footer text-center">
                             <a href="/books/<%= b._id%> " class="btn btn-warning">Details</a>
