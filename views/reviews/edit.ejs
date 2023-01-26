@@ -1,27 +1,33 @@
 <% layout('./layouts/boilerplate') %>
 
     <div class="row">
-        <h2 class="text-center">Reviews</h2>
+        <h2 id="reviewTitlePage" class="text-center">Reviews</h2>
         <div class="col-6 offset-3">
             <form action="/books/<%= bookId %>/<%= reviewId %>/reviews?_method=PUT" method="POST">
                 <div class="mb-3">
-                    <label>What did you think?</label>
+                    <label id="reviewPage">What did you think?</label>
                     <textarea class="form-control" name="content"></textarea>
                 </div>
                 <div class="mb-3">
-                    <label>Ratings:
-                        <select class="form-select" name="rating">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5" selected>5</option>
-                        </select>
-                    </label>
+                    <fieldset class="starability-basic">
+                        <legend class="mainText">Rating:</legend>
+                        <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked
+                            aria-label="No rating." />
+                        <input type="radio" id="first-rate1" name="rating" value=" 1" />
+                        <label for="first-rate1" title="Terrible">1 star</label>
+                        <input type="radio" id="first-rate2" name="rating" value=" 2" />
+                        <label for="first-rate2" title="Not good">2 stars</label>
+                        <input type="radio" id="first-rate3" name="rating" value=" 3" />
+                        <label for="first-rate3" title="Average">3 stars</label>
+                        <input type="radio" id="first-rate4" name="rating" value=" 4" />
+                        <label for="first-rate4" title="Very good">4 stars</label>
+                        <input type="radio" id="first-rate5" name="rating" value=" 5" />
+                        <label for="first-rate5" title="Amazing">5 stars</label>
+                    </fieldset>
                 </div>
 
                 <div class="mb-3">
-                    <button class="btn btn-primary" type="submit">Save</button>
+                    <button class="btn btn-warning" type="submit">Save</button>
                 </div>
             </form>
         </div>
