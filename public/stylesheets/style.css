@@ -44,9 +44,10 @@
     font-size: 20px;
 }
 
-p {
+.bodyText {
     color: white;
 }
+
 
 #reviewHeading {
     text-align: center;
@@ -79,10 +80,6 @@ p {
     background-position: center;
 }
 
-.headings {
-    font-size: 20px;
-    color: red;
-}
 
 .review-user img {
     border-radius: 50%;
