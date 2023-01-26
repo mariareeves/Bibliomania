@@ -5,41 +5,41 @@
             <div class="card" style="width: 18rem;">
                 <img src="<%= book.coverImage %>" id="book-details" class="card-img-top" alt="Book">
                 <div class="card-body text-center">
-                    <a href="/books" class="btn btn-primary">Add to Favorites</a>
+                    <a href="/books" class="btn btn-warning">Add to Favorites</a>
                 </div>
             </div>
         </div>
         <div class="right-side">
 
             <div>
-                <h3>Title:</h3>
+                <h3 class="mainText">Title:</h3>
                 <p>
                     <%= book.title%>
                 </p>
             </div>
             <div>
-                <h3>Author:</h3>
+                <h3 class="mainText">Author:</h3>
                 <p>
                     <%= book.author %>
                 </p>
             </div>
 
             <div>
-                <h3>Published Date:</h3>
+                <h3 class="mainText">Published Date:</h3>
                 <p>
                     <%= book.publishedDate%>
                 </p>
             </div>
 
             <div>
-                <h3>Genre: </h3>
+                <h3 class="mainText">Genre: </h3>
                 <p>
                     <%= book.genre%>
                 </p>
             </div>
 
             <div>
-                <h3>Overview: </h3>
+                <h3 class="mainText">Overview: </h3>
                 <p>
                     <%= book.overview%>
                 </p>
@@ -48,10 +48,10 @@
             <br><b></b>
         </div>
         <br>
-        <div class="table-responsive">
-            <h2>Ratings & Reviews</h2>
+        <div class="right-side table-responsive bottom-page">
+            <h2 id="reviewHeading">Ratings & Reviews</h2>
             <% if (book.reviews.length) { %>
-                <table class="table align-middle">
+                <table class=" table align-middle">
                     <thead>
                         <tr class="align-bottom>
                             <th scope=" col">
