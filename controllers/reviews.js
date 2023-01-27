@@ -34,10 +34,8 @@ function newReview(req, res) {
 }
 
 function deleteReview(req, res) {
-    console.log('testing')
     Book.findOne({ 'reviews._id': req.params.id, 'reviews.user': req.user._id },
         function (err, book) {
-            console.log(err)
             if (!book || err) return res.redirect(`/books/${book._id}`)
             book.reviews.remove(req.params.id)
             book.save(function (err) {
@@ -52,7 +50,6 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-    console.log('something', req.params.bookId, req.params.reviewId)
     Book.findOne({ 'reviews._id': req.params.reviewId }, function (err, book) {
         console.log(book)
         const reviewSubdoc = book.reviews.id(req.params.reviewId)

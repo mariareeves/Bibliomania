@@ -17,7 +17,6 @@ function index(req, res) {
 
 function show(req, res) {
     Book.findById(req.params.id, function (err, book) {
-        console.log(err)
         res.render('books/show', { title: 'Book Details', book })
     })
 
@@ -41,8 +40,6 @@ function create(req, res) {
 
 
 function searchBooks(req, res) {
-    console.log(req.query)
-    // console.log('Book Query', bookQuery)
     Book.find({ title: { $regex: new RegExp(req.query.bookTitle, 'i') } }, function (err, books) {
         res.render('books/index', {
             books,
