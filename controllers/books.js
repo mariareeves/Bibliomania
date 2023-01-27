@@ -9,12 +9,15 @@ module.exports = {
 
 }
 
+//view all books
+
 function index(req, res) {
     Book.find({}, function (err, books) {
         res.render('books/index', { title: 'See All Books', books })
     })
 }
 
+// show details of the book
 function show(req, res) {
     Book.findById(req.params.id, function (err, book) {
         res.render('books/show', { title: 'Book Details', book })
@@ -22,10 +25,12 @@ function show(req, res) {
 
 }
 
+// receives a form to create a new book
 function newBook(req, res) {
     res.render('books/new', { title: 'Add a Book' });
 }
 
+// creates a new book and add to the database
 function create(req, res) {
     const book = new Book(req.body)
     //Assin the logged in user's id
@@ -38,7 +43,7 @@ function create(req, res) {
 }
 
 
-
+// search for a book
 function searchBooks(req, res) {
     Book.find({ title: { $regex: new RegExp(req.query.bookTitle, 'i') } }, function (err, books) {
         res.render('books/index', {
